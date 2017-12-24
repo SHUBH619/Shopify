@@ -1,0 +1,9 @@
+{
+  "DB":{
+    "HOST":"localhost",
+    "PORT":"2345",
+    "USER": "userone",
+    "PASSWORD":"passone",
+    "DATABASE":"shopify"
+  }
+}

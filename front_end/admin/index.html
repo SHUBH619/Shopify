@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopify Admin</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="./admin_frontend.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <style>
+        body{
+            background: #74ebd5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+        #heading{
+            color: white;
+            font-size: 12em;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container-fluid" >
+    <div class="row justify-content-center" style="background-color: forestgreen">
+        <div id="heading" class="col-12 text-center">
+            <i class="fab fa-opencart"></i>
+            <i>Shopify</i></div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-8 text-center" style="color: hotpink;font-size: 4.5em;">
+            Welcome admin
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-10" style="background-color: #5F9EA0;color: white">
+            <p style="border-bottom: solid white 2px; font-size: 3em">
+                Add new item
+            </p>
+            <form style="margin-bottom: 10px" id="addForm" action="/admin/addItem" method="post" enctype="multipart/form-data">
+                <div class="form-group" style="font-size: 1.5em">
+                    <div class="form-row">
+                        <div class="col-4">Choose item image:</div>
+                        <div class="col-7">
+                            <input  type="file" name="image"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-5">
+                        <input type="text" id="title" class="form-control" placeholder="Title" name="title">
+                    </div>
+                    <div class="input-group col-5">
+                        <span class="input-group-addon">₹</span>
+                        <input type="text" id="price" class="form-control" aria-label="Amount in rupees" placeholder="Price" name="price">
+                    </div>
+                </div>
+                <div style="margin-top: 10px; margin-bottom: 10px">
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+    </div>
+</div>
+</div>
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-8 text-center" style="color: navy ;font-size: 4.5em;">
+            Items added so far
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5">
+
+    <div id="cardDeck" class="card-deck">
+
+
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>
