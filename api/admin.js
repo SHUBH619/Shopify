@@ -57,8 +57,9 @@ route.post('/deleteItem',(req,res)=>{
         catalogue.destroy({
             where:{
                 title:req.body.title
-            }
-        }).then(()=>{
+            },
+        }).then((data)=>{
+            console.log(data);
             res.redirect('.');
         }).catch((err)=>{
             console.error(err);

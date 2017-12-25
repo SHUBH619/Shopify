@@ -11,10 +11,7 @@ function getItems(callback) {
 function postItem(title,price,description,callback) {
 
     let fd=new FormData($('#addForm')[0]);
-    // fd.append('image',$('#image').files)
-    // fd.append('title',title);
-    // fd.append('price',price);
-    // fd.append('description',description)
+
 
     $.ajax({
         url:'/admin/addItem',
@@ -63,23 +60,22 @@ $(()=>{
     let refreshItems=(items)=>{
 
         itemBox.empty();
-        for(item of items)
-        {
-            let card=$(`<div class="card">
+            for (item of items) {
+                let card = $(`<div class="card">
             <img class="card-img-top" src="${item.imagePath}" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">${item.title}</h4>
                 <p class="card-text">${item.des}</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated at ${item.updatedAt.substring(0,10)} ${item.updatedAt.slice(11,19)}</small><br>
+                <small class="text-muted">Last updated at ${item.updatedAt.substring(0, 10)} ${item.updatedAt.slice(11, 19)}</small><br>
                  <div data-id="${item.title}" data-im="${item.imagePath}" onclick="deleteI(this)"><i class="fas fa-trash"></i><div>
             </div>
             </div>`);
 
-            itemBox.append(card);
+                itemBox.append(card);
 
-        }
+            }
     }
 
     getItems(refreshItems);
