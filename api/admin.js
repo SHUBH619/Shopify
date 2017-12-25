@@ -1,6 +1,17 @@
 const express=require('express');
 const route=express.Router();
 const catalogue=require('../db/models').catalogue;
+var multer = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './front_end/admin/uploads')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+});
+
+var upload = multer({ storage: storage }).single('image');
 
 
 route.get('/',(req,res)=>{
@@ -14,19 +25,26 @@ route.get('/',(req,res)=>{
 
 route.post('/addItem',(req,res)=>{
 
-    catalogue.create({
-        title:req.body.title,
-        // imagePath:`./images/`,
-        price:req.body.price,
-        description:req.body.description
-    })
-        .then(()=>{
-            form.parse(req);
-            res.redirect('.');
-        })
-        .catch((err)=>{
+    upload(req, res, function (err) {
+        if (err) {
             console.log(err);
-        });
+        }
+        console.log(req.file);
+        catalogue.create({
+            title:req.body.title,
+            imagePath:`./uploads/${req.file.filename}`,
+            price:req.body.price,
+            des:req.body.des
+        })
+            .then(()=>{
+                res.redirect('.');
+            })
+            .catch((err)=>{
+                console.log(err);
+            });
+
+    })
+
 });
 
 exports.route=route;

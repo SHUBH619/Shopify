@@ -26,7 +26,7 @@ const catalogue=db.define('catalogue',
             type:dataTypes.INTEGER,
             allowNull:false
         },
-        description:{
+        des:{
             type:dataTypes.TEXT,
             allowNull:true
         }
