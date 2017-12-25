@@ -1,7 +1,9 @@
 const express=require('express');
 const route=express.Router();
 const catalogue=require('../db/models').catalogue;
-var multer = require('multer');
+const multer = require('multer');
+const fs=require('fs');
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './front_end/admin/uploads')
@@ -27,7 +29,7 @@ route.post('/addItem',(req,res)=>{
 
     upload(req, res, function (err) {
         if (err) {
-            console.log(err);
+            console.error(err);
         }
         console.log(req.file);
         catalogue.create({
@@ -40,11 +42,27 @@ route.post('/addItem',(req,res)=>{
                 res.redirect('.');
             })
             .catch((err)=>{
-                console.log(err);
+                console.error(err);
             });
 
     })
 
 });
 
+route.post('/deleteItem',(req,res)=>{
+    fs.unlink(('./front_end/admin'+(req.body.imagePath).slice(1)),function (err) {
+        if(err)
+            console.error(err);
+        console.log('deleted');
+        catalogue.destroy({
+            where:{
+                title:req.body.title
+            }
+        }).then(()=>{
+            res.redirect('.');
+        }).catch((err)=>{
+            console.error(err);
+        })
+    })
+})
 exports.route=route;

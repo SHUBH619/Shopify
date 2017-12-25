@@ -35,6 +35,23 @@ function postItem(title,price,description,callback) {
 
 }
 
+function deleteItem(title,imagepath,callback) {
+
+    $.post(
+        '/admin/deleteItem',
+        {
+            title:title,
+            imagePath:imagepath
+        },
+        (data)=>{
+            console.log('deleted');
+            callback(data);
+    }
+    )
+}
+
+
+
 $(()=>{
 
     let itemBox=$('#cardDeck');
@@ -55,17 +72,24 @@ $(()=>{
                 <p class="card-text">${item.des}</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated at ${item.updatedAt.substring(0,10)} ${item.updatedAt.slice(11,19)}</small>
+                <small class="text-muted">Last updated at ${item.updatedAt.substring(0,10)} ${item.updatedAt.slice(11,19)}</small><br>
+                 <div data-id="${item.title}" data-im="${item.imagePath}" onclick="deleteI(this)"><i class="fas fa-trash"></i><div>
             </div>
             </div>`);
 
             itemBox.append(card);
 
         }
-
     }
 
     getItems(refreshItems);
+
+    window.deleteI=(element)=>{
+        let title=$(element).attr('data-id');
+        let imagepath=$(element).attr('data-im');
+        console.log(title);
+        deleteItem(title,imagepath,refreshItems);
+    }
 
     form.submit((e)=>{
         e.preventDefault();
