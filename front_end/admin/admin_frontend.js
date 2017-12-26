@@ -76,7 +76,7 @@ $(()=>{
             </div>
             <div class="card-footer">
                 <small class="text-muted">Last updated at ${(item.updatedAt).substring(0, 10)} ${(item.updatedAt).slice(11, 19)}</small><br>
-                 <div data-id="${item.title}" data-im="${item.imagePath}" onclick="deleteI(this)"><i class="fas fa-trash"></i><div>
+                 <div data-id="${item.title}" data-im="${item.imagePath}" onclick="deleteI(this)"><i class="fas fa-trash"></i></div>
             </div>
             </div>`);
 

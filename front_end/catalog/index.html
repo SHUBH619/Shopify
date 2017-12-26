@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Shopify</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="./catalog_frontend.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <style>
+        body{
+            background: #74ebd5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        #heading{
+            color: white;
+            font-size: 12em;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        #cart{
+            color: white;
+            border-radius:47% ;
+            background-color: red;
+            position: fixed;
+            padding-top: 13px;
+            bottom: 0;
+            right: 0;
+            height: 100px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container-fluid" >
+    <div class="row justify-content-center" style="background-color: forestgreen">
+        <div id="heading" class="col-12 text-center">
+            <i class="fab fa-opencart"></i>
+            <i>Shopify</i></div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-8 text-center" style="color: forestgreen;font-size: 4.5em;">
+            Khareedein acha maal, Saste mein !
+        </div>
+    </div>
+</div>
+
+<div id="ab" class="container mt-3">
+    <div class="row justify-content-center">
+        <div id="av" class="col-8 text-center" style="color: navy ;font-size: 4.5em;">
+            Available items
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5">
+
+    <div id="cardDeck" class="card-deck">
+
+
+    </div>
+</div>
+
+<button class="row mr-3" id="cart">
+    <div class="col-1 text-center">
+    <i class="fas fa-shopping-cart fa-4x"></i>
+    </div>
+</button>
+</body>
+</html>

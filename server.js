@@ -12,9 +12,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/admin/task',routes.admin);
-app.use('/catalog',routes.admin);
+app.use('/catalog/task',routes.admin);
 
 app.use('/admin',express.static('./front_end/admin'));
+app.use('/catalog',express.static('./front_end/catalog'));
+
 app.listen(2345,()=>{
 console.log('Server on at http://localhost:2345/');
 });

@@ -18,7 +18,7 @@ var upload = multer({ storage: storage }).single('image');
 
 route.get('/getItems',(req,res)=>{
     catalogue.findAll().then((items)=>{
-        res.send(items)
+        res.send(items);
     })
         .catch((err)=>{
             console.log("Could not fetch items because"+err.message);
@@ -31,7 +31,11 @@ route.post('/addItem',(req,res)=>{
         if (err) {
             console.error(err);
         }
+        console.log();
+        console.log("********************************")
+        console.log('File details:')
         console.log(req.file);
+        console.log('******************************** \n')
         catalogue.create({
             title:req.body.title,
             imagePath:`./uploads/${req.file.filename}`,
