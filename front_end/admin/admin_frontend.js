@@ -1,6 +1,6 @@
 function getItems(callback) {
     $.get(
-        '/admin',
+        './task/getItems',
         (data)=>{
             console.log("success");
             callback(data);
@@ -14,7 +14,7 @@ function postItem(title,price,description,callback) {
 
 
     $.ajax({
-        url:'/admin/addItem',
+        url:'./task/addItem',
         method:"POST",
         data:fd,
         async:true,
@@ -35,7 +35,7 @@ function postItem(title,price,description,callback) {
 function deleteItem(title,imagepath,callback) {
 
     $.post(
-        '/admin/deleteItem',
+        './task/deleteItem',
         {
             title:title,
             imagePath:imagepath
@@ -50,7 +50,7 @@ function deleteItem(title,imagepath,callback) {
 
 
 $(()=>{
-
+    let ab=$('#ab')
     let itemBox=$('#cardDeck');
     let title=$('#title');
     let price=$('#price');
@@ -58,7 +58,14 @@ $(()=>{
     let description=$('#des');
 
     let refreshItems=(items)=>{
-
+        if(items.length===0)
+        {
+            ab.hide();
+        }
+        else
+        {
+            ab.show();
+        }
         itemBox.empty();
             for (item of items) {
                 let card = $(`<div class="card">
@@ -68,7 +75,7 @@ $(()=>{
                 <p class="card-text">${item.des}</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated at ${item.updatedAt.substring(0, 10)} ${item.updatedAt.slice(11, 19)}</small><br>
+                <small class="text-muted">Last updated at ${(item.updatedAt).substring(0, 10)} ${(item.updatedAt).slice(11, 19)}</small><br>
                  <div data-id="${item.title}" data-im="${item.imagePath}" onclick="deleteI(this)"><i class="fas fa-trash"></i><div>
             </div>
             </div>`);

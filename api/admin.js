@@ -16,7 +16,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage }).single('image');
 
 
-route.get('/',(req,res)=>{
+route.get('/getItems',(req,res)=>{
     catalogue.findAll().then((items)=>{
         res.send(items)
     })
@@ -39,7 +39,7 @@ route.post('/addItem',(req,res)=>{
             des:req.body.des
         })
             .then(()=>{
-                res.redirect('.');
+                res.redirect('./getItems');
             })
             .catch((err)=>{
                 console.error(err);
@@ -60,10 +60,11 @@ route.post('/deleteItem',(req,res)=>{
             },
         }).then((data)=>{
             console.log(data);
-            res.redirect('.');
+            res.redirect('./getItems');
         }).catch((err)=>{
             console.error(err);
         })
     })
 })
+
 exports.route=route;
