@@ -35,7 +35,7 @@ route.post('/addItem',(req,res)=>{
         console.log("********************************")
         console.log('File details:')
         console.log(req.file);
-        console.log('******************************** \n')
+        console.log('********************************\n')
         catalogue.create({
             title:req.body.title,
             imagePath:`./uploads/${req.file.filename}`,

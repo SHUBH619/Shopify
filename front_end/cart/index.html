@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="./cart_frontend.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <style>
+        body{
+            background: #74ebd5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+        #heading{
+            color: white;
+            font-size: 12em;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+
+        #shop{
+            color: white;
+            border-radius:47% ;
+            background-color: red;
+            position: fixed;
+            padding-top: 8px;
+            bottom: 0;
+            right: 0;
+            height: 100px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid" >
+        <div class="row justify-content-center" style="background-color: forestgreen">
+        <div id="heading" class="col-12 text-center">
+            <i class="fab fa-opencart"></i>
+            <i>Shopify</i></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-8 text-center" style="color: orangered;font-size: 4.5em;">
+            Your cart
+            </div>
+        </div>
+        <div class="row justify-content-center p-5">
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-primary btn-lg" style="background-color: orange;color: white;font-size: 30px">PLACE ORDER</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-5">
+
+        <div id="cardDeck" class="card-deck">
+
+
+        </div>
+    </div>
+
+    <button class="row mr-3" id="shop">
+        <div class="col-1 text-center">
+            <i class="fas fa-shopping-bag fa-4x"></i>
+        </div>
+    </button>
+</body>
+</html>

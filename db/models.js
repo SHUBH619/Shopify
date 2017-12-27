@@ -34,7 +34,7 @@ const catalogue=db.define('catalogue',
         freezeTableName:true
     });
 
-db.sync({force:true})
+db.sync({force:false})
     .then(()=>{
         console.log("Database configured")
     })
