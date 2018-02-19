@@ -68,7 +68,9 @@ $(()=>{
         }
         itemBox.empty();
             for (item of items) {
-                let card = $(`<div class="card">
+                let card = $(`
+        <div class="  col-sm-12 col-lg-4 ">
+             <div class="card m-md-4">
             <img class="card-img-top" src="${item.imagePath}" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">${item.title}</h4>
@@ -78,7 +80,9 @@ $(()=>{
                 <small class="text-muted">Last updated at ${(item.updatedAt).substring(0, 10)} ${(item.updatedAt).slice(11, 19)}</small><br>
                  <div data-id="${item.title}" data-im="${item.imagePath}" onclick="deleteI(this)"><i class="fas fa-trash"></i></div>
             </div>
-            </div>`);
+            </div>
+        </div>
+           `);
 
                 itemBox.append(card);
 

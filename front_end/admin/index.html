@@ -23,6 +23,22 @@
             font-size: 12em;
             font-family: "Trebuchet MS", Helvetica, sans-serif;
         }
+        .card img{
+            height: 300px;
+        }
+
+
+
+        @media only screen and (max-width: 1000px) {
+
+            .card {
+                width: 750px;
+                margin-left: 100px;
+            }
+            .card img{
+                height: 500px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -76,7 +92,7 @@
 </div>
 </div>
 
-<div id="ab" class="container mt-3">
+<div id="ab" class="container mt-md-3">
     <div class="row justify-content-center">
         <div class="col-8 text-center" style="color: navy ;font-size: 4.5em;">
             Items added so far
@@ -84,12 +100,13 @@
     </div>
 </div>
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-5 pl-3">
 
-    <div id="cardDeck" class="card-deck">
+    <div id="cardDeck" class="row ">
 
 
     </div>
+
 </div>
 
 
